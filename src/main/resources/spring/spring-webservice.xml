@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-extension-jaxws.xml"/>
+    <!-- 配置说明 每个cxf webservice 成对配置 -->
+    <!--<bean id="id值" class="webservice 接口实现类"/>-->
+    <!--<jaxws:endpoint id="对外开放的Id值" implementor="#bean的Id值,带前面的#,"-->
+                    <!--address="/对外开放的url路径，带前面的/"/>-->
+
+    <!--<bean id="test" class="com.fxtech.admin.service.webservice.server.test.impl.testServiceImpl"></bean>-->
+    <!--<jaxws:endpoint id="testService" implementor="#test"-->
+    <!--address="/test"/>-->
+
+    <!--<bean id="hello" class="com.fxtech.admin.service.webservice.server.test.impl.HelloWorldServiceImpl"/>-->
+    <!--<jaxws:endpoint id="helloWorld" implementor="#hello" address="/helloWorld"></jaxws:endpoint>-->
+
+    <!--ssm集成暴露webservice接口，访问路径是工程名 + web.xml中配置的拦截器 + address的值 + ?wsdl-->
+    <bean id="WSInterfaceImpl" class="com.webservice.cxf_webService.impl.DemoWebServiceImpl"/>
+    <jaxws:endpoint id="PortalService" implementor="#WSInterfaceImpl" address="/WSInterface"></jaxws:endpoint>
+
+</beans>
