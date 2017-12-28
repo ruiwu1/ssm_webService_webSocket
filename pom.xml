@@ -290,6 +290,12 @@
       <artifactId>cxf-rt-transports-http-jetty</artifactId>
       <version>3.1.6</version>
     </dependency>
+    <!--集成elasticsearch 版本6.1，搜索引擎-->
+    <dependency>
+      <groupId>org.elasticsearch.client</groupId>
+      <artifactId>transport</artifactId>
+      <version>6.1.1</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>WebSocket</finalName>
